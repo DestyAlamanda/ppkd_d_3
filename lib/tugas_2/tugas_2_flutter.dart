@@ -102,16 +102,16 @@ class TugasDua extends StatelessWidget {
           child: Text("saya mahasiswa semester 7 jurusan teknik informatika yang sedang belajar flutter saya mahasiswa semester 7 jurusan teknik informatika yang sedang belajar fluttersaya mahasiswa semester 7 jurusan teknik informatika yang sedang belajar flutter "),
           ), 
            Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: Container(
-                  padding: EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  border: Border.all(color: const Color.fromARGB(255, 162, 162, 162), width: 3),
-                  borderRadius: BorderRadius.circular(8),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Container(
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                color: Colors.grey[300],
+                border: Border.all(color: const Color.fromARGB(255, 162, 162, 162), width: 3),
+                borderRadius: BorderRadius.circular(8),
               ),
             ),
-                ),
+          ),
         ],
       ),
     );
