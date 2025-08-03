@@ -122,7 +122,7 @@ class TugasDua extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 40),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: Text(
@@ -135,16 +135,7 @@ class TugasDua extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(top: 50),
             decoration: BoxDecoration(
-              color: Colors.grey[600]),
-            child: Center(
-              // child: Text(
-              //   'PPKD Batch 3',
-              //   style: TextStyle(
-              //     color: const Color.fromARGB(255, 94, 92, 92),
-              //     fontSize: 16,
-              //   ),
-              // ),
-            ),
+              color: Colors.grey[600])
           ),
         ],
       ),
