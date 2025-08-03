@@ -44,7 +44,7 @@ class TugasDua extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.email, color: Colors.grey[700]),
-                  Spacer(),
+                  SizedBox(width: 90),
                   Text(
                     "Alamanda@gmail.com",
                     style: TextStyle(fontSize: 20, color: Colors.grey[700]),
