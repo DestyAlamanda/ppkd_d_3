@@ -9,53 +9,66 @@ class TugasTiga extends StatelessWidget {
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
         title: Text("Formulir", 
-        style: TextStyle(color: Colors.grey[100])),
+        style: TextStyle(color: Colors.grey[100], fontWeight: FontWeight.bold )),
         backgroundColor: Colors.pink[200],
         centerTitle: true
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-            Padding(padding: EdgeInsetsGeometry.symmetric(horizontal: 50, vertical: 10)),
-            SizedBox(height: 20),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: Column(
                 children: [
                   TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Nama Lengkap',
+                    decoration: InputDecoration( 
+                      prefixIcon: Icon(
+                        Icons.person
+                      ),
+                      labelText: 'Nama Lengkap', 
                       border: OutlineInputBorder()),
+                      keyboardType: TextInputType.name,
                       ),
                       SizedBox(height: 20),
                       TextField(
                     decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.email
+                      ),
                       labelText: 'Email',
                       border: OutlineInputBorder()),
+                      keyboardType: TextInputType.emailAddress,
                       ),
                       SizedBox(height: 20),
                       TextField(
                     decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.phone
+                      ),
                       labelText: 'No Hp',
                       border: OutlineInputBorder()),
+                      keyboardType: TextInputType.phone,
                       ),
                       SizedBox(height: 20),
                       TextField(
                     decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.notes
+                      ),
                       labelText: 'Deskripsi',
                       border: OutlineInputBorder()),
+                      maxLines: 3,
                       ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 15),
                     Text("Galeri",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.grey),
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.grey),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 10),
                     GridView.count(
                       shrinkWrap: true,
-                      padding: EdgeInsets.all(8.0),
                       crossAxisCount: 2,
-                      mainAxisSpacing: 4,
-                      crossAxisSpacing: 4,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
                       children: [
                         Stack(
                           children: [

@@ -63,6 +63,13 @@ flutter:
     # - assets/fonts/Poppins
     - assets/photos/carmen2.jpg
     - assets/photos/carmen.jpg
+    - assets/photos/jeno.png
+    - assets/photos/seola.png
+    - assets/photos/ruka.png
+    - assets/photos/yuta.png
+    - assets/photos/taeri.png
+    - assets/photos/minji.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
