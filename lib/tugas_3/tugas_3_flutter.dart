@@ -63,7 +63,7 @@ class TugasTiga extends StatelessWidget {
                     Text("Galeri",
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.grey),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: ),
                     GridView.count(
                       shrinkWrap: true,
                       crossAxisCount: 2,
