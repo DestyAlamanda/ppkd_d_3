@@ -133,7 +133,7 @@ class TugasDua extends StatelessWidget {
           ),
           Spacer(),
           Container(
-            padding: EdgeInsets.only(top: 50),
+            // padding: EdgeInsets.only(top: 50),
             decoration: BoxDecoration(
               color: Colors.grey[600])
           ),
