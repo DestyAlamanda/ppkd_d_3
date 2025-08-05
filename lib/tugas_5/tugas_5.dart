@@ -9,155 +9,197 @@ class TugasLima extends StatefulWidget {
 
 class _TugasLimaState extends State<TugasLima> {
   String name = "Desty Alamanda";
-  String desc = "lalalalallala";
+  String desc = "Lalalaala";
   bool showName = true;
   bool isLiked = false;
   bool showDescription = false;
-  bool showInkWellText = false;
+  bool showInkWellImage = false;
   int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Day 8 State",)),
+      appBar: AppBar(title: Text("Tugas 5")),
       body: ListView(
-        // child: Column(
-          children: [
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(width: 20),
-              ],
-            ),
-            Image.asset("assets/photos/jeno.png"),
-            Padding(
-              padding: EdgeInsetsGeometry.all(10),
-            ),
-            Row(
-              children: [
-            // membuat ElevatedButton
-            Column(
+        children: [
+          const SizedBox(height: 20),
+
+          // InkWell - gambar interaktif
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    showInkWellImage = !showInkWellImage;
+                  });
+                  print("Kotak disentuh");
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: 300,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: showInkWellImage
+                          ? Image.asset(
+                              "assets/photos/carmen2.jpg",
+                              fit: BoxFit.cover,
+                            )
+                          : const SizedBox.shrink(),
+                    ),
+                  ),
+                ),
+              ),
+
+              // IconButton - tombol like
+              Positioned(
+                bottom: -5,
+                right: 8,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isLiked = !isLiked;
+                      });
+                      if (isLiked) print("Disukai");
+                    },
+                    icon: const Icon(Icons.favorite, size: 40),
+                    color: isLiked ? Colors.pink[500] : Colors.grey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 20),
+
+          // ElevatedButton - tampilkan nama
+          Center(
+            child: Column(
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    setState(() {});
-                    showName = !showName;
+                    setState(() {
+                      showName = !showName;
+                    });
                   },
-                  child: Text(showName ? "Nama Saya" : "Nama Saya"),
+                  child: Text(showName ? "Sembunyikan Nama" : "Tampilkan Nama"),
                 ),
-              
-            showName ? Text(name, style: TextStyle(fontSize: 20, color: Colors.pink[200])) : SizedBox(),
-              ]
+                const SizedBox(height: 10),
+                showName
+                    ? Text(
+                        "Nama saya: $name",
+                        style: TextStyle(fontSize: 20, color: Colors.pink[300]),
+                      )
+                    : const SizedBox(),
+              ],
             ),
-            Spacer(),//  membuat IconButton
-            IconButton(
-                  onPressed: () {
-                    setState(() {});
-                    isLiked = !isLiked;
-                  },
-                  icon: Icon(Icons.favorite),
-                  color: isLiked ? Colors.pink[500] : Colors.grey
-                ),
-              ]
-            ),
-                SizedBox(width: 20),
-            //  membuat TextButton
-            TextButton(
-              onPressed: () {
-                setState(() {});
-                showDescription = !showDescription;
-              },
-              child: Text(showDescription ? "Sembunyikan" : "Lihat Selengkapnya.."),
-            ),
-            showDescription ? Text(desc, style: TextStyle(fontSize: 20)) : SizedBox(),
-        
-            Text(counter.toString(), style: TextStyle(fontSize: 40)),
-          //   FloatingActionButton(
-          //  onPressed: () {
-          //           setState(() {});
-          //           counter++;
-          //           // print(counter);
-          //         },
-          //         child  : Icon(Icons.add),
-          //    ),
-        
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          ),
+
+          const SizedBox(height: 30),
+
+          // TextButton - tampilkan deskripsi
+          Center(
+            child: Column(
               children: [
-                FloatingActionButton(
+                TextButton(
                   onPressed: () {
-                    setState(() {});
-                    counter--;
-                    print(counter);
+                    setState(() {
+                      showDescription = !showDescription;
+                    });
                   },
-                  child: Icon(Icons.minimize),
+                  child:
+                      Text(showDescription ? "Sembunyikan" : "Lihat Selengkapnya"),
                 ),
-                SizedBox(width: 20),
-        
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {});
-                    counter++;
-                    print(counter);
-                  },
-                  child: Icon(Icons.add),
+                const SizedBox(height: 10),
+                showDescription
+                    ? Text(
+                        desc,
+                        style: const TextStyle(fontSize: 18),
+                        textAlign: TextAlign.center,
+                      )
+                    : const SizedBox(),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 30),
+
+          // FloatingActionButton (counter)
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  counter.toString(),
+                  style: const TextStyle(fontSize: 40),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          counter--;
+                        });
+                      },
+                      heroTag: "minus",
+                      child: const Icon(Icons.remove),
+                    ),
+                    const SizedBox(width: 20),
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          counter++;
+                        });
+                      },
+                      heroTag: "plus",
+                      child: const Icon(Icons.add),
+                    ),
+                  ],
                 ),
               ],
             ),
-            // SizedBox(height: 10),
-            // Text("Ini InkWell"),
-            // InkWell(
-            //   onTap: () {},
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(20.0),
-            //     child: Image.asset("assets/images/jeno.jpeg"),
-            //   ),
-            // ),
-            SizedBox(height: 20,),
-            Text("Ini InkWell"),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  showInkWellText = !showInkWellText;
-                });
-              },
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 3, horizontal: 20),
-              child: Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  border: Border.all(
-                    color: const Color.fromARGB(255, 162, 162, 162),
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(8)
-               ),
-               child: showInkWellText? Text("data"): const SizedBox.shrink(),
-              )
-             ),
-            ),
-            Text("Ini GestureDetector"),
-            GestureDetector(
-              onDoubleTap: () {
-                print("Ditekan Dua Kali");
-              },
-              onTap: () {
-                print("Ditekan Sekali");
-              },
-              onLongPress: () {
-                print("Tahan Lama");
-              },
-              child: Container(
-                color: Colors.blue,
-                height: 48,
-                width: double.infinity,
-                child: Text("Tekan Aku"),
+          ),
+
+          const SizedBox(height: 30),
+
+          // GestureDetector
+          GestureDetector(
+            onDoubleTap: () {
+              print("Ditekan dua kali");
+            },
+            onTap: () {
+              print("Ditekan sekali");
+            },
+            onLongPress: () {
+              print("Tahan lama");
+            },
+            child: Container(
+              height: 48,
+              width: double.infinity,
+              color: Colors.blue,
+              alignment: Alignment.center,
+              child: const Text(
+                "Tekan Aku",
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
-           ]
-         ),
-      );
-    //  );
+          ),
+
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
   }
 }
