@@ -70,6 +70,8 @@ flutter:
     - assets/photos/taeri.png
     - assets/photos/minji.png
     - assets/photos/hacipupu.png
+    - assets/photos/facebook.jpg
+    - assets/photos/Google.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

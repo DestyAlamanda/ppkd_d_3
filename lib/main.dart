@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
-        // fontFamily: "Poppins"
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        fontFamily: "Poppins",
       ),
       home: TugasEnam(),
     );
