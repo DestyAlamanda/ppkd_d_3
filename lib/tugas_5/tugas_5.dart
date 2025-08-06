@@ -9,7 +9,7 @@ class TugasLima extends StatefulWidget {
 
 class _TugasLimaState extends State<TugasLima> {
   String name = "Desty Alamanda";
-  String desc = "Lalalaala";
+  String desc = "Peserta Mobile Programming Batch 3 di PPKD Jakarta Pusat";
   bool showName = true;
   bool isLiked = false;
   bool showDescription = false;
@@ -19,11 +19,16 @@ class _TugasLimaState extends State<TugasLima> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tugas 5")),
+      appBar: AppBar(title: Text("Tugas 5",
+      style: TextStyle(color: Colors.grey[100], 
+      fontWeight: FontWeight.bold )),
+        backgroundColor: Colors.pink[100],
+        centerTitle: true
+        ),
+      backgroundColor: Colors.grey[50],
       body: ListView(
         children: [
-          const SizedBox(height: 20),
-
+          const SizedBox(height: 10),
           // InkWell - gambar interaktif
           Stack(
             alignment: Alignment.center,
@@ -41,7 +46,7 @@ class _TugasLimaState extends State<TugasLima> {
                     height: 300,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: ClipRRect(
@@ -51,11 +56,19 @@ class _TugasLimaState extends State<TugasLima> {
                               "assets/photos/carmen2.jpg",
                               fit: BoxFit.cover,
                             )
-                          : const SizedBox.shrink(),
+                          : Center(
+                            child: Text("klik",
+                            style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
+                 ),
                 ),
-              ),
 
               // IconButton - tombol like
               Positioned(
@@ -98,8 +111,8 @@ class _TugasLimaState extends State<TugasLima> {
                 const SizedBox(height: 10),
                 showName
                     ? Text(
-                        "Nama saya: $name",
-                        style: TextStyle(fontSize: 20, color: Colors.pink[300]),
+                        "Nama saya : $name",
+                        style: TextStyle(fontSize: 20, color: Colors.pink[200]),
                       )
                     : const SizedBox(),
               ],
@@ -125,7 +138,7 @@ class _TugasLimaState extends State<TugasLima> {
                 showDescription
                     ? Text(
                         desc,
-                        style: const TextStyle(fontSize: 18),
+                        style: const TextStyle(fontSize: 18, color: Colors.pink),
                         textAlign: TextAlign.center,
                       )
                     : const SizedBox(),
@@ -153,7 +166,6 @@ class _TugasLimaState extends State<TugasLima> {
                           counter--;
                         });
                       },
-                      heroTag: "minus",
                       child: const Icon(Icons.remove),
                     ),
                     const SizedBox(width: 20),
@@ -163,7 +175,6 @@ class _TugasLimaState extends State<TugasLima> {
                           counter++;
                         });
                       },
-                      heroTag: "plus",
                       child: const Icon(Icons.add),
                     ),
                   ],
@@ -171,9 +182,7 @@ class _TugasLimaState extends State<TugasLima> {
               ],
             ),
           ),
-
           const SizedBox(height: 30),
-
           // GestureDetector
           GestureDetector(
             onDoubleTap: () {
@@ -188,7 +197,7 @@ class _TugasLimaState extends State<TugasLima> {
             child: Container(
               height: 48,
               width: double.infinity,
-              color: Colors.blue,
+              color: Colors.pink[100],
               alignment: Alignment.center,
               child: const Text(
                 "Tekan Aku",
