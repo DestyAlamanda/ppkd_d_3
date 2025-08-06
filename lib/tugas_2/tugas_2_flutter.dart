@@ -7,8 +7,10 @@ class TugasDua extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profil Lengkap", 
-        style: TextStyle(color: Colors.grey[100])),
+        title: Text(
+          "Profil Lengkap",
+          style: TextStyle(color: Colors.grey[100]),
+        ),
         backgroundColor: Colors.grey[600],
         centerTitle: true,
       ),
@@ -25,7 +27,7 @@ class TugasDua extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               color: Colors.grey[600],
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(height: 20),
@@ -35,10 +37,7 @@ class TugasDua extends StatelessWidget {
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: Colors.grey[300],
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 2,
-                ),
+                border: Border.all(color: Colors.grey, width: 2),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
@@ -71,7 +70,7 @@ class TugasDua extends StatelessWidget {
                   Spacer(),
                   Text(
                     "0898-8518-083",
-                    style: TextStyle(fontSize: 20, color: Colors.grey[700])
+                    style: TextStyle(fontSize: 20, color: Colors.grey[700]),
                   ),
                 ],
               ),
@@ -94,7 +93,7 @@ class TugasDua extends StatelessWidget {
                         'Postingan',
                         style: TextStyle(
                           color: Colors.grey[700],
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -112,8 +111,8 @@ class TugasDua extends StatelessWidget {
                       child: Text(
                         'Followers',
                         style: TextStyle(
-                          color: Colors.grey[100], 
-                          fontWeight: FontWeight.bold
+                          color: Colors.grey[100],
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -134,8 +133,7 @@ class TugasDua extends StatelessWidget {
           Spacer(),
           Container(
             // padding: EdgeInsets.only(top: 50),
-            decoration: BoxDecoration(
-              color: Colors.grey[600])
+            decoration: BoxDecoration(color: Colors.grey[600]),
           ),
         ],
       ),

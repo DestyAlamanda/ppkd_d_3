@@ -19,12 +19,17 @@ class _TugasLimaState extends State<TugasLima> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tugas 5",
-      style: TextStyle(color: Colors.grey[100], 
-      fontWeight: FontWeight.bold )),
-        backgroundColor: Colors.pink[100],
-        centerTitle: true
+      appBar: AppBar(
+        title: Text(
+          "Tugas 5",
+          style: TextStyle(
+            color: Colors.grey[100],
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        backgroundColor: Colors.pink[100],
+        centerTitle: true,
+      ),
       backgroundColor: Colors.grey[50],
       body: ListView(
         children: [
@@ -57,18 +62,19 @@ class _TugasLimaState extends State<TugasLima> {
                               fit: BoxFit.cover,
                             )
                           : Center(
-                            child: Text("klik",
-                            style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                              child: Text(
+                                "klik",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
-                 ),
                 ),
+              ),
 
               // IconButton - tombol like
               Positioned(
@@ -131,14 +137,18 @@ class _TugasLimaState extends State<TugasLima> {
                       showDescription = !showDescription;
                     });
                   },
-                  child:
-                      Text(showDescription ? "Sembunyikan" : "Lihat Selengkapnya"),
+                  child: Text(
+                    showDescription ? "Sembunyikan" : "Lihat Selengkapnya",
+                  ),
                 ),
                 const SizedBox(height: 10),
                 showDescription
                     ? Text(
                         desc,
-                        style: const TextStyle(fontSize: 18, color: Colors.pink),
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.pink,
+                        ),
                         textAlign: TextAlign.center,
                       )
                     : const SizedBox(),
@@ -152,10 +162,7 @@ class _TugasLimaState extends State<TugasLima> {
           Center(
             child: Column(
               children: [
-                Text(
-                  counter.toString(),
-                  style: const TextStyle(fontSize: 40),
-                ),
+                Text(counter.toString(), style: const TextStyle(fontSize: 40)),
                 const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -201,7 +208,10 @@ class _TugasLimaState extends State<TugasLima> {
               alignment: Alignment.center,
               child: const Text(
                 "Tekan Aku",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),

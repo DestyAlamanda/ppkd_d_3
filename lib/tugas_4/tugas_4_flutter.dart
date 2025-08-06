@@ -8,11 +8,16 @@ class TugasEmpat extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        title: Text("Formulir", 
-        style: TextStyle(color: Colors.grey[100], fontWeight: FontWeight.bold )),
-        backgroundColor: Colors.pink[200],
-        centerTitle: true
+        title: Text(
+          "Formulir",
+          style: TextStyle(
+            color: Colors.grey[100],
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        backgroundColor: Colors.pink[200],
+        centerTitle: true,
+      ),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: [
@@ -52,7 +57,10 @@ class TugasEmpat extends StatelessWidget {
             maxLines: 3,
           ),
           SizedBox(height: 20),
-          Text("Daftar Produk", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          Text(
+            "Daftar Produk",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
           SizedBox(height: 10),
           // List of items
           Card(
@@ -63,13 +71,17 @@ class TugasEmpat extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              title: Text("Sepatu Taeri",
-              style: TextStyle(
-                color: Colors.black,
-                  fontWeight: FontWeight.bold,)
+              title: Text(
+                "Sepatu Taeri",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
                 ),
-              subtitle: Text("Rp140.000",
-              style: TextStyle(color: Colors.black)),
+              ),
+              subtitle: Text(
+                "Rp140.000",
+                style: TextStyle(color: Colors.black),
+              ),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {},
             ),
@@ -82,13 +94,17 @@ class TugasEmpat extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              title: Text("Sepatu Jeno",
-              style: TextStyle(
-                color: Colors.black,
-                  fontWeight: FontWeight.bold)
-                  ),
-              subtitle: Text("Rp150.000",
-              style: TextStyle(color: Colors.black)),
+              title: Text(
+                "Sepatu Jeno",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text(
+                "Rp150.000",
+                style: TextStyle(color: Colors.black),
+              ),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {},
             ),
@@ -101,13 +117,17 @@ class TugasEmpat extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              title: Text("Sepatu Ruka",
-              style: TextStyle(
-                color: Colors.black,
-                  fontWeight: FontWeight.bold)
-                  ),
-              subtitle: Text("Rp160.000",
-              style: TextStyle(color: Colors.black)),
+              title: Text(
+                "Sepatu Ruka",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text(
+                "Rp160.000",
+                style: TextStyle(color: Colors.black),
+              ),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {},
             ),
@@ -120,13 +140,17 @@ class TugasEmpat extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              title: Text("Sepatu Minji", 
-              style: TextStyle(
-                color: Colors.black,
-                  fontWeight: FontWeight.bold)
+              title: Text(
+                "Sepatu Minji",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              subtitle: Text("Rp145.000",
-              style: TextStyle(color: Colors.black)),
+              subtitle: Text(
+                "Rp145.000",
+                style: TextStyle(color: Colors.black),
+              ),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {},
             ),
@@ -139,13 +163,15 @@ class TugasEmpat extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              title: Text("Sepatu Seola",
+              title: Text(
+                "Sepatu Seola",
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text("Rp155.000",
+              subtitle: Text(
+                "Rp155.000",
                 style: TextStyle(color: Colors.black),
               ),
               trailing: Icon(Icons.arrow_forward_ios),
