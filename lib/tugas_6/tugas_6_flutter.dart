@@ -10,8 +10,6 @@ class TugasEnam extends StatefulWidget {
 class _TugasEnamState extends State<TugasEnam> {
   bool _isPasswordVisible = false;
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,7 @@ class _TugasEnamState extends State<TugasEnam> {
                       "Welcome Back",
                       style: TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     SizedBox(height: 8),
@@ -40,13 +38,14 @@ class _TugasEnamState extends State<TugasEnam> {
                       style: TextStyle(fontSize: 14, color: Color(0xFF888888)),
                     ),
 
-                    SizedBox(height: 30),
+                    SizedBox(height: 25),
                     Stack(
                       alignment: (Alignment.center),
                       children: [
                         Container(
                           height: 56,
                           width: 327,
+                          padding: EdgeInsets.symmetric(horizontal: 4),
                           decoration: BoxDecoration(
                             color: Color(0xFFF5F5F5),
                             borderRadius: BorderRadius.circular(8),
@@ -66,6 +65,7 @@ class _TugasEnamState extends State<TugasEnam> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Color(0xFF646464),
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ),
@@ -81,6 +81,7 @@ class _TugasEnamState extends State<TugasEnam> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Color(0xFF888888),
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ),
@@ -92,7 +93,6 @@ class _TugasEnamState extends State<TugasEnam> {
                     SizedBox(height: 30),
 
                     // input no telp
-                    // input no telp
                     Text(
                       'Phone Number',
                       style: TextStyle(
@@ -103,7 +103,6 @@ class _TugasEnamState extends State<TugasEnam> {
                     ),
                     SizedBox(height: 16),
                     TextFormField(
-                      controller: _phoneController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(horizontal: 16),
@@ -120,7 +119,7 @@ class _TugasEnamState extends State<TugasEnam> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 25),
                     Text(
                       'Password',
                       style: TextStyle(
@@ -131,7 +130,6 @@ class _TugasEnamState extends State<TugasEnam> {
                     ),
                     SizedBox(height: 16),
                     TextFormField(
-                      controller: _passwordController,
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: !_isPasswordVisible,
                       decoration: InputDecoration(
@@ -167,7 +165,43 @@ class _TugasEnamState extends State<TugasEnam> {
                     // Tombol Submit
                     ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {}
+                        if (_formKey.currentState!.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                "OTP has been sent!",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              backgroundColor: Color(0xff21BDCA),
+                            ),
+                          );
+                        } else {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text("Login Failed"),
+                                content: Text(
+                                  "Phone number or password is incorrect",
+                                ),
+                                backgroundColor: Colors.grey[100],
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text("OK"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff21BDCA),
@@ -186,7 +220,7 @@ class _TugasEnamState extends State<TugasEnam> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 30),
                     Row(
                       children: [
                         Expanded(child: Divider()),
@@ -205,84 +239,90 @@ class _TugasEnamState extends State<TugasEnam> {
                       ],
                     ),
 
-                    SizedBox(height: 20),
+                    SizedBox(height: 30),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xffF5F5F5),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 28,
-                              vertical: 14,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            elevation: 0,
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image.asset(
-                                'assets/photos/Google.jpg',
-                                width: 16,
-                                height: 16,
-                              ),
-                              SizedBox(width: 8),
-                              Text(
-                                'Google',
-                                style: TextStyle(
-                                  color: Color(0xff222222),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
+                        Expanded(
+                          child: SizedBox(
+                            height: 48,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xffF5F5F5),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
+                                elevation: 0,
                               ),
-                            ],
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/photos/Google.jpg',
+                                    width: 16,
+                                    height: 16,
+                                  ),
+                                  SizedBox(width: 8),
+                                  Text(
+                                    'Google',
+                                    style: TextStyle(
+                                      color: Color(0xff222222),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xffF5F5F5),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 28,
-                              vertical: 14,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6),
-                            ),
-                            elevation: 0,
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image.asset(
-                                'assets/photos/facebook.jpg',
-                                width: 16,
-                                height: 16,
-                              ),
-                              SizedBox(width: 8),
-                              Text(
-                                'Facebook',
-                                style: TextStyle(
-                                  color: Color(0xff222222),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: SizedBox(
+                            height: 48,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xffF5F5F5),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
+                                elevation: 0,
                               ),
-                            ],
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/photos/facebook.jpg',
+                                    width: 16,
+                                    height: 16,
+                                  ),
+                                  SizedBox(width: 8),
+                                  Text(
+                                    'Facebook',
+                                    style: TextStyle(
+                                      color: Color(0xff222222),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
+
                     SizedBox(height: 30),
 
                     Center(
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          print("lala");
+                        },
                         child: Text.rich(
                           TextSpan(
                             text: "Don't have an account? ",
@@ -297,6 +337,7 @@ class _TugasEnamState extends State<TugasEnam> {
                                 style: TextStyle(
                                   color: Color(0xff21BDCA),
                                   fontWeight: FontWeight.w700,
+                                  fontSize: 12,
                                 ),
                               ),
                             ],
