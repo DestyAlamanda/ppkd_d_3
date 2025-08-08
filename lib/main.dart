@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_d_3/tugas_6/tugas_6_flutter.dart';
+import 'package:ppkd_d_3/learn_routing/home_page.dart';
+import 'package:ppkd_d_3/learn_routing/login_page.dart';
+import 'package:ppkd_d_3/learn_routing/second_page.dart';
+import 'package:ppkd_d_3/learn_routing/third_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +21,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         fontFamily: "Poppins",
       ),
-      home: TugasEnam(),
+      // home: TugasEnam(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+        '/homepage': (context) => HomePage(),
+        '/second': (context) => SecondPage(),
+        '/third': (context) => ThirdPage(),
+      },
     );
   }
 }
