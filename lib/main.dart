@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_d_3/learn_routing/home_page.dart';
-import 'package:ppkd_d_3/learn_routing/login_page.dart';
-import 'package:ppkd_d_3/learn_routing/second_page.dart';
-import 'package:ppkd_d_3/learn_routing/third_page.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:ppkd_d_3/tugas_7/tugas_7.dart';
 
 void main() {
+  initializeDateFormatting("id_ID");
   runApp(const MyApp());
 }
 
@@ -21,14 +20,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         fontFamily: "Poppins",
       ),
-      // home: TugasEnam(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => LoginPage(),
-        '/homepage': (context) => HomePage(),
-        '/second': (context) => SecondPage(),
-        '/third': (context) => ThirdPage(),
-      },
+      home: TugasTujuh(),
+
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => LoginPage(),
+      //   '/homepage': (context) => HomePage(),
+      //   '/second': (context) => SecondPage(),
+      //   '/third': (context) => ThirdPage(),
+      // },
     );
   }
 }
