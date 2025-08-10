@@ -16,18 +16,22 @@ class _CheckBoxState extends State<CheckBox> {
       color: isCheckSwitch == true ? Colors.black : Colors.white,
       child: Column(
         children: [
-          Text(
-            "Syarat dan Ketentuan",
-            style: TextStyle(
-              color: isCheckSwitch == true ? Colors.white : Colors.black,
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              "Syarat & Ketentuan",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[600],
+              ),
             ),
           ),
-          SizedBox(height: 20),
-          Text("Saya menyetujui semua persyaratan yang berlaku"),
+          SizedBox(height: 8),
           Row(
             children: [
               Checkbox(
-                activeColor: Colors.red,
+                activeColor: Color(0xff21BDCA),
                 value: isCheck,
                 onChanged: (value) {
                   setState(() {
@@ -35,12 +39,24 @@ class _CheckBoxState extends State<CheckBox> {
                   });
                 },
               ),
-              Text(
-                isCheck == true
-                    ? "Lanjutkan pendaftaran diperbolehkan"
-                    : "Anda belum bisa melanjutkan",
+              Expanded(
+                child: Text(
+                  "Saya menyetujui semua persyaratan yang berlaku",
+                  softWrap: true,
+                ),
               ),
             ],
+          ),
+          SizedBox(height: 20),
+          Text(
+            isCheck == true
+                ? "Lanjutkan pendaftaran diperbolehkan"
+                : "Anda belum bisa melanjutkan",
+            style: TextStyle(
+              fontSize: 15,
+              color: isCheck == true ? Color(0xff21BDCA) : Colors.pink[300],
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),

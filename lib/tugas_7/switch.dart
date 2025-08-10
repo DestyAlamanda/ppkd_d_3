@@ -9,17 +9,26 @@ class Switch_ extends StatefulWidget {
 
 class _Switch_State extends State<Switch_> {
   bool isCheckSwitch = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: isCheckSwitch == true ? Colors.black : Colors.white,
       child: Column(
         children: [
-          Text("Mode Gelap"),
+          SizedBox(height: 10),
+          Text(
+            "Mode Gelap",
+            style: TextStyle(
+              color: isCheckSwitch ? Colors.white : Colors.grey[600],
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
           Row(
             children: [
               Switch(
-                activeColor: Colors.red,
+                activeColor: Color(0xff21BDCA),
                 value: isCheckSwitch,
                 onChanged: (value) {
                   setState(() {
@@ -27,8 +36,26 @@ class _Switch_State extends State<Switch_> {
                   });
                 },
               ),
-              Text(isCheckSwitch == true ? "Hidup" : "Aktifkan Mode Gelap"),
+              Text(
+                isCheckSwitch == true
+                    ? "Aktifkan Mode Terang"
+                    : "Aktifkan Mode Gelap",
+                style: TextStyle(
+                  color: isCheckSwitch ? Colors.white : Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              isCheckSwitch ? "Mode gelap aktif" : "Mode terang aktif",
+              style: TextStyle(
+                color: isCheckSwitch ? Colors.white : Colors.grey[600],
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ],
       ),

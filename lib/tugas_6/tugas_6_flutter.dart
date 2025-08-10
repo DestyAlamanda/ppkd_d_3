@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_d_3/tugas_8/tugas_8.dart';
 
 class TugasEnam extends StatefulWidget {
   const TugasEnam({super.key});
@@ -166,10 +167,16 @@ class _TugasEnamState extends State<TugasEnam> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TugasDelapan(),
+                            ),
+                          );
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                "OTP has been sent!",
+                                "Login Success",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 16,
@@ -212,7 +219,7 @@ class _TugasEnamState extends State<TugasEnam> {
                         elevation: 0,
                       ),
                       child: Text(
-                        "Request OTP",
+                        "Login",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,

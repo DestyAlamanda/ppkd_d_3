@@ -14,10 +14,19 @@ class _DropDownState extends State<DropDown> {
     return Container(
       child: Column(
         children: [
-          Text("Pilih Kategori Produk"),
+          SizedBox(height: 8),
+          Text(
+            "Pilih Kategori Produk",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey[600],
+            ),
+          ),
+          SizedBox(height: 10),
           DropdownButton(
             value: dropdownSelect,
-            hint: Text("Pilih Warna"),
+            hint: Text("Pilih Kategori"),
             items: ["Elektronik", "Pakaian", "Makanan", "Lainnya"].map((
               String value,
             ) {
@@ -27,6 +36,17 @@ class _DropDownState extends State<DropDown> {
               setState(() {});
               dropdownSelect = value;
             },
+          ),
+          SizedBox(height: 10),
+          Text(
+            dropdownSelect != null
+                ? "Anda memilih kategori: $dropdownSelect"
+                : "Belum memilih kategori",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey[600],
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),
