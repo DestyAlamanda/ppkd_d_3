@@ -16,18 +16,7 @@ class _CheckBoxState extends State<CheckBox> {
       color: isCheckSwitch == true ? Colors.black : Colors.white,
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              "Syarat & Ketentuan",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey[600],
-              ),
-            ),
-          ),
-          SizedBox(height: 8),
+          Padding(padding: EdgeInsetsGeometry.all(10)),
           Row(
             children: [
               Checkbox(

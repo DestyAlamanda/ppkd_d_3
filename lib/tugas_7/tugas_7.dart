@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_d_3/tugas_6/tugas_6_flutter.dart';
 import 'package:ppkd_d_3/tugas_7/checkbox.dart';
 import 'package:ppkd_d_3/tugas_7/date_picker.dart';
 import 'package:ppkd_d_3/tugas_7/dropdown.dart';
@@ -14,6 +15,13 @@ class TugasTujuh extends StatefulWidget {
 
 class _TugasTujuhState extends State<TugasTujuh> {
   int _selectedIndexDrawer = 0;
+  static const List<String> _titles = [
+    "Syarat & Ketentuan",
+    "Mode Gelap / Terang",
+    "PilihKategori Produk",
+    "Pilih Tanggal Lahir",
+    "Atur Pengingat",
+  ];
   static const List<Widget> _widgetOptions = <Widget>[
     CheckBox(),
     Switch_(),
@@ -33,15 +41,40 @@ class _TugasTujuhState extends State<TugasTujuh> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Formulir",
+          _titles[_selectedIndexDrawer],
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Color(0xff21BDCA),
       ),
       body: Center(child: _widgetOptions[_selectedIndexDrawer]),
       drawer: Drawer(
+        backgroundColor: Color(0xff21BDCA),
         child: ListView(
           children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.white, // warna background header
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Color(0xff21BDCA),
+                    child: Icon(Icons.person, size: 40, color: Colors.white),
+                  ),
+                  SizedBox(height: 13),
+                  Text(
+                    'Hi, Manda',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             ListTile(
               title: Text("CheckBox"),
               onTap: () {
@@ -72,10 +105,19 @@ class _TugasTujuhState extends State<TugasTujuh> {
                 onItemTap(4);
               },
             ),
+            ListTile(
+              title: Text("Logout"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => TugasEnam()),
+                );
+              },
+            ),
           ],
         ),
       ),
-      // endDrawer: Drawer(child: Column(children: [])),
     );
   }
 }

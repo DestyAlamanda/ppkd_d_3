@@ -16,15 +16,7 @@ class _Switch_State extends State<Switch_> {
       color: isCheckSwitch == true ? Colors.black : Colors.white,
       child: Column(
         children: [
-          SizedBox(height: 10),
-          Text(
-            "Mode Gelap",
-            style: TextStyle(
-              color: isCheckSwitch ? Colors.white : Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-          ),
+          Padding(padding: EdgeInsetsGeometry.all(10)),
           Row(
             children: [
               Switch(

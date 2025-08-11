@@ -13,16 +13,7 @@ class _TimePickerState extends State<TimePicker> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 8),
-        Text(
-          "Atur Pengingat",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.grey[600],
-          ),
-        ),
-        SizedBox(height: 10),
+        Padding(padding: EdgeInsetsGeometry.all(10)),
         ElevatedButton(
           child: Text("Pilih Waktu Pengingat"),
           onPressed: () async {

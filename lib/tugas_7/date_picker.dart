@@ -17,16 +17,6 @@ class _DatePickerState extends State<DatePicker> {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          SizedBox(height: 8),
-          const Text(
-            "Pilih Tanggal Lahir",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-            ),
-          ),
-          // SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: ElevatedButton(

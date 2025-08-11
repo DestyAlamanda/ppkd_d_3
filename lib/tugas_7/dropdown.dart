@@ -14,15 +14,7 @@ class _DropDownState extends State<DropDown> {
     return Container(
       child: Column(
         children: [
-          SizedBox(height: 8),
-          Text(
-            "Pilih Kategori Produk",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey[600],
-            ),
-          ),
+          Padding(padding: EdgeInsetsGeometry.all(10)),
           SizedBox(height: 10),
           DropdownButton(
             value: dropdownSelect,
