@@ -5,6 +5,9 @@ import 'package:ppkd_d_3/tugas_7/date_picker.dart';
 import 'package:ppkd_d_3/tugas_7/dropdown.dart';
 import 'package:ppkd_d_3/tugas_7/switch.dart';
 import 'package:ppkd_d_3/tugas_7/time_picker.dart';
+import 'package:ppkd_d_3/tugas_9/list.dart';
+import 'package:ppkd_d_3/tugas_9/list_map.dart';
+import 'package:ppkd_d_3/tugas_9/model.dart';
 
 class TugasTujuh extends StatefulWidget {
   const TugasTujuh({super.key});
@@ -21,6 +24,9 @@ class _TugasTujuhState extends State<TugasTujuh> {
     "PilihKategori Produk",
     "Pilih Tanggal Lahir",
     "Atur Pengingat",
+    "List",
+    "List Map",
+    "Model",
   ];
   static const List<Widget> _widgetOptions = <Widget>[
     CheckBox(),
@@ -28,6 +34,9 @@ class _TugasTujuhState extends State<TugasTujuh> {
     DropDown(),
     DatePicker(),
     TimePicker(),
+    ListKategori(),
+    ListMap(),
+    Model(),
   ];
   void onItemTap(int index) {
     setState(() {
@@ -103,6 +112,24 @@ class _TugasTujuhState extends State<TugasTujuh> {
               title: Text("TimePicker"),
               onTap: () {
                 onItemTap(4);
+              },
+            ),
+            ListTile(
+              title: Text("List"),
+              onTap: () {
+                onItemTap(5);
+              },
+            ),
+            ListTile(
+              title: Text("List Map"),
+              onTap: () {
+                onItemTap(6);
+              },
+            ),
+            ListTile(
+              title: Text("Model"),
+              onTap: () {
+                onItemTap(7);
               },
             ),
             ListTile(

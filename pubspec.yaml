@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.19.0
+  material_design_icons_flutter: ^7.0.7296
 
 dev_dependencies:
 
@@ -69,6 +70,17 @@ flutter:
     - assets/photos/hacipupu.png
     - assets/photos/facebook.jpg
     - assets/photos/Google.jpg
+    - assets/photos/pulpen.jpg
+    - assets/photos/pensil.jpg
+    - assets/photos/spidol.jpg
+    - assets/photos/CT.jpg
+    - assets/photos/buku.jpg
+    - assets/photos/penggaris.jpg
+    - assets/photos/penghapus.jpg
+    - assets/photos/sticky.jpg
+    - assets/photos/stabilo.jpg
+    - assets/photos/clip.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
