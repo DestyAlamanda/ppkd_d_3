@@ -154,7 +154,21 @@ class _TugasSepuluhAState extends State<TugasSepuluhA> {
                       );
                     }
                   },
-                  child: Text("daftar"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xff21BDCA),
+                    fixedSize: Size(327, 56),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                  child: Text(
+                    "Daftar",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ],
