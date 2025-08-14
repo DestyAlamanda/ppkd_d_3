@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_d_3/tugas_10/tugas_10a.dart';
+import 'package:ppkd_d_3/tugas_11/user_screen.dart';
 import 'package:ppkd_d_3/tugas_6/tugas_6_flutter.dart';
 import 'package:ppkd_d_3/tugas_7/checkbox.dart';
 import 'package:ppkd_d_3/tugas_7/date_picker.dart';
@@ -29,6 +30,7 @@ class _TugasTujuhState extends State<TugasTujuh> {
     "List Map",
     "Model",
     "Formulir Pendaftaran Kelas",
+    "Data Penghuni Kos",
   ];
   static const List<Widget> _widgetOptions = <Widget>[
     CheckBox(),
@@ -40,6 +42,7 @@ class _TugasTujuhState extends State<TugasTujuh> {
     ListMap(),
     Model(),
     TugasSepuluhA(),
+    TugasSebelas(),
   ];
   void onItemTap(int index) {
     setState(() {
@@ -138,6 +141,12 @@ class _TugasTujuhState extends State<TugasTujuh> {
               title: Text("Formulir"),
               onTap: () {
                 onItemTap(8);
+              },
+            ),
+            ListTile(
+              title: Text("Data Kos"),
+              onTap: () {
+                onItemTap(9);
               },
             ),
             ListTile(
