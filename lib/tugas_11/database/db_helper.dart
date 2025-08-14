@@ -1,6 +1,6 @@
 // import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
-import 'package:ppkd_d_3/tugas_11/user.dart';
+import 'package:ppkd_d_3/tugas_11/model/user.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper {
