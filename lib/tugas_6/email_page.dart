@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_d_3/tugas_6/email_page.dart';
+import 'package:ppkd_d_3/tugas_6/tugas_6_flutter.dart';
 import 'package:ppkd_d_3/tugas_8/tugas_8.dart';
 
-class TugasEnam extends StatefulWidget {
-  const TugasEnam({super.key});
+class LoginEmailPage extends StatefulWidget {
+  const LoginEmailPage({super.key});
 
   @override
-  State<TugasEnam> createState() => _TugasEnamState();
+  State<LoginEmailPage> createState() => _LoginEmailPageState();
 }
 
-class _TugasEnamState extends State<TugasEnam> {
+class _LoginEmailPageState extends State<LoginEmailPage> {
   bool _isPasswordVisible = false;
   final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,32 +57,16 @@ class _TugasEnamState extends State<TugasEnam> {
                                 height: 48,
                                 width: 151,
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Phone Number",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xFF646464),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 48,
-                                width: 151,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
+
                                 alignment: Alignment.center,
                                 child: TextButton(
                                   onPressed: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => LoginEmailPage(),
+                                        builder: (context) => TugasEnam(),
                                       ),
                                     );
                                   },
@@ -97,6 +80,33 @@ class _TugasEnamState extends State<TugasEnam> {
                                   ),
                                 ),
                               ),
+                              Container(
+                                height: 48,
+                                width: 151,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                alignment: Alignment.center,
+                                // child: TextButton(
+                                //   onPressed: () {
+                                //     Navigator.push(
+                                //       context,
+                                //       MaterialPageRoute(
+                                //         builder: (context) => TugasEnam(),
+                                //       ),
+                                //     );
+                                //   },
+                                child: Text(
+                                  "Email",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Color(0xFF888888),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              // ),
                             ],
                           ),
                         ),
@@ -106,7 +116,7 @@ class _TugasEnamState extends State<TugasEnam> {
 
                     // input no telp
                     Text(
-                      'Phone Number',
+                      'Email',
                       style: TextStyle(
                         color: Color(0xff888888),
                         fontSize: 12,
@@ -115,7 +125,7 @@ class _TugasEnamState extends State<TugasEnam> {
                     ),
                     SizedBox(height: 16),
                     TextFormField(
-                      keyboardType: TextInputType.phone,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(horizontal: 16),
                         border: OutlineInputBorder(
@@ -124,9 +134,9 @@ class _TugasEnamState extends State<TugasEnam> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Phone number cannot be empty';
-                        } else if (value.length < 10) {
-                          return 'Phone number must be at least 10 digits';
+                          return 'Email cannot be empty';
+                        } else if (!value.contains("@")) {
+                          return 'Invalid email format';
                         }
                         return null;
                       },
@@ -204,9 +214,7 @@ class _TugasEnamState extends State<TugasEnam> {
                             builder: (context) {
                               return AlertDialog(
                                 title: Text("Login Failed"),
-                                content: Text(
-                                  "Phone number or password is incorrect",
-                                ),
+                                content: Text("Email or password is incorrect"),
                                 backgroundColor: Colors.grey[100],
                                 actions: [
                                   TextButton(
