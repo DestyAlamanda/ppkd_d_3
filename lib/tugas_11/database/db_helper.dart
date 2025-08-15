@@ -7,7 +7,7 @@ class DbHelper {
   static Future<Database> databaseHelper() async {
     final dbPath = await getDatabasesPath();
     return openDatabase(
-      join(dbPath, 'penguhini.db'),
+      join(dbPath, 'penghuni.db'),
       onCreate: (db, version) {
         return db.execute(
           'CREATE TABLE penghuni(id INTEGER PRIMARY KEY, name TEXT, phone TEXT, room TEXT, city TEXT)',
@@ -44,5 +44,21 @@ class DbHelper {
     final db = await databaseHelper();
     final List<Map<String, dynamic>> results = await db.query('penghuni');
     return results.map((e) => Penghuni.fromMap(e)).toList();
+  }
+
+  static Future<void> updatePenghuni(Penghuni penghuni) async {
+    final db = await databaseHelper();
+    await db.update(
+      'penghuni',
+      penghuni.toMap(),
+      where: 'id = ?',
+      whereArgs: [penghuni.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  static Future<void> deletePenghuni(int id) async {
+    final db = await databaseHelper();
+    await db.delete('penghuni', where: 'id = ?', whereArgs: [id]);
   }
 }

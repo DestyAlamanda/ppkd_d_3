@@ -34,9 +34,11 @@ class _TugasSebelasState extends State<TugasSebelas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
+
           child: Column(
             children: [
               // Text(
@@ -69,7 +71,7 @@ class _TugasSebelasState extends State<TugasSebelas> {
               TextFormConst(
                 hintText: "Asal Kota",
                 controller: cityController,
-                keyboardType: TextInputType.name,
+                keyboardType: TextInputType.streetAddress,
               ),
               SizedBox(height: 12),
               ElevatedButton(
@@ -129,7 +131,7 @@ class _TugasSebelasState extends State<TugasSebelas> {
                 shrinkWrap: true,
                 itemCount: penghuni.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final dataUserLogin = penghuni[index];
+                  final dataPenghuniLogin = penghuni[index];
                   // return ListTile(
                   //   title: Text(dataUserLogin.name),
                   //   subtitle: Text(dataUserLogin.phone,),
@@ -169,12 +171,132 @@ class _TugasSebelasState extends State<TugasSebelas> {
                             // spacing: 12,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Nama : ${dataUserLogin.name}"),
-                              Text("Phone : ${dataUserLogin.phone}"),
-                              Text("No Kamar : ${dataUserLogin.room}"),
-                              Text("Asal Kota : ${dataUserLogin.city}"),
+                              Text("Nama : ${dataPenghuniLogin.name}"),
+                              Text("Phone : ${dataPenghuniLogin.phone}"),
+                              Text("No Kamar : ${dataPenghuniLogin.room}"),
+                              Text("Asal Kota : ${dataPenghuniLogin.city}"),
                             ],
                           ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                nameController.text = dataPenghuniLogin.name;
+                                phoneController.text = dataPenghuniLogin.phone;
+                                roomController.text = dataPenghuniLogin.room;
+                                cityController.text = dataPenghuniLogin.city;
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text(
+                                      'Edit Data',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormConst(
+                                          controller: nameController
+                                            ..text = dataPenghuniLogin.name,
+                                          hintText: 'Nama',
+                                          keyboardType: TextInputType.name,
+                                        ),
+                                        SizedBox(height: 12),
+                                        TextFormConst(
+                                          controller: phoneController
+                                            ..text = dataPenghuniLogin.phone,
+                                          hintText: 'Phone',
+                                          keyboardType: TextInputType.phone,
+                                        ),
+                                        SizedBox(height: 12),
+
+                                        TextFormConst(
+                                          controller: roomController
+                                            ..text = dataPenghuniLogin.room,
+                                          hintText: 'Room',
+                                          keyboardType: TextInputType.number,
+                                        ),
+                                        SizedBox(height: 12),
+                                        TextFormConst(
+                                          controller: cityController
+                                            ..text = dataPenghuniLogin.city,
+                                          hintText: 'Asal Kota',
+                                          keyboardType:
+                                              TextInputType.streetAddress,
+                                        ),
+                                      ],
+                                    ),
+                                    actions: [
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xff21BDCA),
+                                          fixedSize: Size(360, 30),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              6,
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          final dataUser = Penghuni(
+                                            id: dataPenghuniLogin.id!,
+                                            name: nameController.text,
+                                            phone: phoneController.text,
+                                            room: roomController.text,
+                                            city: cityController.text.trim(),
+                                          );
+                                          DbHelper.updatePenghuni(dataUser);
+                                          getUser();
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          'Simpan',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xff21BDCA),
+                                          fixedSize: Size(360, 30),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              6,
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () => Navigator.pop(context),
+                                        child: Text(
+                                          'Batal',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              icon: Icon(Icons.edit),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                DbHelper.deletePenghuni(dataPenghuniLogin.id!);
+
+                                getUser();
+                              },
+                              icon: Icon(Icons.delete),
+                            ),
+                          ],
                         ),
                       ],
                     ),
