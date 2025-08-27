@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:ppkd_d_3/tugas_6/tugas_6_flutter.dart';
+import 'package:ppkd_d_3/tugas_14/view/jikan.dart';
 
 void main() {
   initializeDateFormatting("id_ID");
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         fontFamily: "Poppins",
       ),
-      home: TugasEnam(),
+      home: JikanAnime(),
 
       // initialRoute: '/',
       // routes: {
