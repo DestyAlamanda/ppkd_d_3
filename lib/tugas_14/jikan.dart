@@ -34,11 +34,11 @@ class _JikanAnimeState extends State<JikanAnime> {
                         // print(dataUser.airing);
                         return ListTile(
                           leading: dataUser.trailer?.images?.imageUrl == null
-                              ? CircleAvatar()
+                              ? SizedBox(width: 85)
                               : Image.network(
                                   dataUser.trailer?.images?.imageUrl ?? "",
                                   errorBuilder: (context, error, stackTrace) {
-                                    return CircleAvatar();
+                                    return SizedBox();
                                   },
                                 ),
                           title: Text(dataUser.title ?? ""),
