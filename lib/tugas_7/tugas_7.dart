@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_d_3/tugas_10/tugas_10a.dart';
 import 'package:ppkd_d_3/tugas_11/user_screen.dart';
-import 'package:ppkd_d_3/tugas_14/view/jikan.dart';
+import 'package:ppkd_d_3/tugas_14/jikan.dart';
 import 'package:ppkd_d_3/tugas_6/tugas_6_flutter.dart';
 import 'package:ppkd_d_3/tugas_7/checkbox.dart';
 import 'package:ppkd_d_3/tugas_7/date_picker.dart';

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:ppkd_d_3/tugas_11/shared_preference.dart';
 import 'package:ppkd_d_3/tugas_15/api/user.dart';
 import 'package:ppkd_d_3/tugas_15/model/register_model.dart';
+=======
+import 'package:ppkd_d_3/tugas_11/shared_preference.dart'; // PreferenceHandler
+import 'package:ppkd_d_3/tugas_15/api/user.dart'; // AuthenticationAPI
+import 'package:ppkd_d_3/tugas_15/model/register_model.dart'; // RegisterUserModel
+>>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -12,7 +18,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController nameController = TextEditingController();
+<<<<<<< HEAD
   final TextEditingController emailController = TextEditingController();
+=======
+  final TextEditingController emailController =
+      TextEditingController(); // untuk email
+>>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();

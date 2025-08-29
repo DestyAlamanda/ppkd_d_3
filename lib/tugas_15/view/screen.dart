@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:ppkd_d_3/tugas_15/api/user.dart';
 import 'package:ppkd_d_3/tugas_15/model/get_user_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+=======
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+  static const id = "/screen";
+>>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+<<<<<<< HEAD
   GetUserModel? userData;
   bool isLoading = true;
 
@@ -176,5 +184,10 @@ class _HomeScreenState extends State<HomeScreen> {
       //       label: const Text("Logout", style: TextStyle(color: Colors.white)),
       //     );
     );
+=======
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+>>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
   }
 }
