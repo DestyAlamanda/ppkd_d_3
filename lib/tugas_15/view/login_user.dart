@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:ppkd_d_3/tugas_11/shared_preference.dart';
 import 'package:ppkd_d_3/tugas_15/api/user.dart';
 import 'package:ppkd_d_3/tugas_15/model/register_model.dart';
 import 'package:ppkd_d_3/tugas_15/view/post_api.dart';
 import 'package:ppkd_d_3/tugas_15/view/screen.dart';
-=======
-import 'package:ppkd_d_3/tugas_11/shared_preference.dart'; // PreferenceHandler
-import 'package:ppkd_d_3/tugas_15/api/user.dart'; // Pastikan ini ada
-import 'package:ppkd_d_3/tugas_15/view/post_api.dart';
-import 'package:ppkd_d_3/tugas_15/view/screen.dart'; // HomeScreen
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
+// pastikan ada file ini
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,59 +17,13 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-<<<<<<< HEAD
+
   RegisterUserModel? user;
   String? errorMessage;
-  bool isVisibility = false;
   bool isLoading = false;
-  void loginUser() async {
-    setState(() {
-      isLoading = true;
-      errorMessage = null;
-    });
-    final email = emailController.text.trim();
-    final password = passwordController.text.trim();
-    if (email.isEmpty || password.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Email, dan Password tidak boleh kosong")),
-      );
-      isLoading = false;
-
-      return;
-    }
-    try {
-      final result = await AuthenticationAPI.loginUser(
-        email: email,
-        password: password,
-      );
-      setState(() {
-        user = result;
-      });
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Login berhasil")));
-      PreferenceHandler.saveToken(user?.data?.token.toString() ?? "");
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
-      print(user?.toJson());
-    } catch (e) {
-      print(e);
-      setState(() {
-        errorMessage = e.toString();
-      });
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(errorMessage.toString())));
-    } finally {
-      setState(() {});
-      isLoading = false;
-    }
-=======
   bool isPasswordVisible = false;
 
-  Future<void> login() async {
+  Future<void> loginUser() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
@@ -86,24 +34,62 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    final userData = await AuthenticationAPI.loginUser(
-      email: email,
-      password: password,
-    );
-    PreferenceHandler.saveLogin();
+    setState(() {
+      isLoading = true;
+      errorMessage = null;
+    });
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
-    );
+    try {
+      final result = await AuthenticationAPI.loginUser(
+        email: email,
+        password: password,
+      );
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("Login berhasil"),
-        backgroundColor: Colors.green,
-      ),
-    );
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
+      setState(() {
+        user = result;
+      });
+
+      // simpan token
+      await PreferenceHandler.saveToken(user?.data?.token ?? "");
+      await PreferenceHandler.saveLogin();
+
+      if (!mounted) return;
+
+      // tampilkan snackbar dulu
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Login berhasil"),
+          backgroundColor: Colors.green,
+        ),
+      );
+
+      // lalu pindah ke home
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+
+      print(user?.toJson());
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        errorMessage = e.toString();
+      });
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(errorMessage.toString())));
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -146,10 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 32),
 
-<<<<<<< HEAD
-=======
-              // Email
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
+              // input email
               const Text("Email", style: TextStyle(color: Colors.grey)),
               const SizedBox(height: 8),
               TextField(
@@ -164,19 +147,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 20),
 
-<<<<<<< HEAD
-=======
-              // Password
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
+              // input password
               const Text("Kata Sandi", style: TextStyle(color: Colors.grey)),
               const SizedBox(height: 8),
               TextField(
                 controller: passwordController,
-<<<<<<< HEAD
-                obscureText: !isVisibility,
-=======
                 obscureText: !isPasswordVisible,
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
                 decoration: InputDecoration(
                   hintText: "Masukkan kata sandi",
                   border: OutlineInputBorder(
@@ -184,22 +160,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(
-<<<<<<< HEAD
-                      isVisibility ? Icons.visibility : Icons.visibility_off,
-=======
                       isPasswordVisible
                           ? Icons.visibility
                           : Icons.visibility_off,
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
                       color: Colors.grey,
                     ),
                     onPressed: () {
                       setState(() {
-<<<<<<< HEAD
-                        isVisibility = !isVisibility;
-=======
                         isPasswordVisible = !isPasswordVisible;
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
                       });
                     },
                   ),
@@ -207,42 +175,31 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 30),
 
-<<<<<<< HEAD
+              // tombol login
               SizedBox(
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {
-                    loginUser();
-                  },
-=======
-              // Tombol Login
-              SizedBox(
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: login,
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
+                  onPressed: isLoading ? null : loginUser,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF1A2A80),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text(
-                    "Masuk",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  child: isLoading
+                      ? const CircularProgressIndicator(color: Colors.white)
+                      : const Text(
+                          "Masuk",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                 ),
               ),
-
               const SizedBox(height: 24),
 
-<<<<<<< HEAD
-=======
-              // Navigasi ke halaman daftar
->>>>>>> a496840cdf697e447f87dd450f1fbe9d222a3d31
+              // navigasi ke register
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -251,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => RegisterPage()),
+                        MaterialPageRoute(builder: (_) => const RegisterPage()),
                       );
                     },
                     child: const Text(

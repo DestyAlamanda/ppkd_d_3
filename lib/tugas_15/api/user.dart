@@ -18,6 +18,7 @@ class AuthenticationAPI {
       body: {"name": name, "email": email, "password": password},
       headers: {"Accept": "application/json"},
     );
+
     if (response.statusCode == 200) {
       return RegisterUserModel.fromJson(json.decode(response.body));
     } else {
@@ -36,43 +37,47 @@ class AuthenticationAPI {
       body: {"email": email, "password": password},
       headers: {"Accept": "application/json"},
     );
+
     if (response.statusCode == 200) {
       return RegisterUserModel.fromJson(json.decode(response.body));
     } else {
       final error = json.decode(response.body);
-      throw Exception(error["message"] ?? "Register gagal");
+      throw Exception(error["message"] ?? "Login gagal");
     }
   }
 
   static Future<GetUserModel> updateUser({required String name}) async {
     final url = Uri.parse(Endpoint.profile);
-    final token = await PreferenceHandler.getToken();
+    final token = await PreferenceHandler.getToken() ?? "";
 
-    final response = await http.post(
+    final response = await http.put(
       url,
       body: {"name": name},
-      headers: {"Accept": "application/json", "Authorization": token},
+      headers: {"Accept": "application/json", "Authorization": "Bearer $token"},
     );
+
     if (response.statusCode == 200) {
       return GetUserModel.fromJson(json.decode(response.body));
     } else {
       final error = json.decode(response.body);
-      throw Exception(error["message"] ?? "Register gagal");
+      throw Exception(error["message"] ?? "Update profile gagal");
     }
   }
 
   static Future<GetUserModel> getProfile() async {
     final url = Uri.parse(Endpoint.profile);
-    final token = await PreferenceHandler.getToken();
+    final token = await PreferenceHandler.getToken() ?? "";
+
     final response = await http.get(
       url,
-      headers: {"Accept": "application/json", "Authorization": token},
+      headers: {"Accept": "application/json", "Authorization": "Bearer $token"},
     );
+
     if (response.statusCode == 200) {
       return GetUserModel.fromJson(json.decode(response.body));
     } else {
       final error = json.decode(response.body);
-      throw Exception(error["message"] ?? "Register gagal");
+      throw Exception(error["message"] ?? "Get profile gagal");
     }
   }
 }
